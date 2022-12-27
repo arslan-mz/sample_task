@@ -12,7 +12,7 @@ class TaskController extends Controller
 {
     public function ViewTasks()
     {
-        $tasks = Task::join("users", "users.id", "=", "tasks.assigned_to")->select('tasks.id', 'description', 'due_date', 'remarks', 'name', 'status')->get();
+        $tasks = Task::join("users", "users.id", "=", "tasks.assigned_by")->select('tasks.id', 'description', 'due_date', 'remarks', 'name', 'status')->get();
         $data =  compact('tasks');
         //echo "<pre>";
         //print_r($data->toArray());
